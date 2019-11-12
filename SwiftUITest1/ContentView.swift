@@ -11,6 +11,18 @@ import SwiftUI
 #endif
 
 @available(iOS 13.0, *)
+struct MainNavigationView: View {
+    var body: some View {
+        VStack {
+            NavigationView {
+                ContentView()
+                    .navigationBarTitle("Welcome")
+            }
+        }
+    }
+}
+
+@available(iOS 13.0, *)
 struct ContentView: View {
     init() {
         // To remove only extra separators below the list:
@@ -33,7 +45,7 @@ struct ContentView: View {
                         .padding(.leading, 60)
                         .padding(.trailing, 60)
                 }
-                .padding(.top,10)
+                .padding(.top, 10)
                 .fixedSize()
                 .foregroundColor(.blue)
                 .transformEffect(CGAffineTransform(rotationAngle: -0.1))
