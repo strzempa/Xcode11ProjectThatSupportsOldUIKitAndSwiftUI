@@ -19,6 +19,11 @@ final class AppCoordinator {
 extension AppCoordinator {
     func start() {
         let collectionViewController = SomeViewController()
+        var githubService = DefaultGithubService()
+        var service = Service()
+        service.session = URLSession.shared
+        githubService.service = service
+        collectionViewController.githubService = githubService
         navigationController.pushViewController(collectionViewController, animated: false)
     }
 }
