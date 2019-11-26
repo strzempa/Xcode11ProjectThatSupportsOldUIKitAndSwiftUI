@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     
     /// Change to present old / new style UI on ios13
-    var uiStyle: UIStyle = .classic
+    var uiStyle: UIStyle = .modern
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -83,7 +83,8 @@ private extension SceneDelegate {
     }
     
     func startSwiftUIFlow(_ scene: UIScene) {
-        let navigationController = UIHostingController(rootView: MainNavigationView())
+        let navigationController = UIHostingController(rootView: MainNavigationView(githubService: DefaultServiceFactory.makeGithubService(),
+                                                                                    reqresInService: DefaultServiceFactory.makeReqresInService()))
         
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {

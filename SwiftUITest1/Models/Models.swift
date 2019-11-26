@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Repository: Codable {
+struct Repository: Codable, Identifiable {
     let id: Int
     let name: String
 }
@@ -17,6 +17,6 @@ struct PostUserData: Codable {
     let name, job: String?
 }
 
-struct UserCreatedData: Codable {
+struct UserCreatedData: Codable, Identifiable {
     let id, createdAt: String?
 }

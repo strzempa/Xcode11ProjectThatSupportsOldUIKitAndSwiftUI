@@ -19,14 +19,8 @@ final class AppCoordinator {
 extension AppCoordinator {
     func start() {
         let collectionViewController = SomeViewController()
-        var githubService = DefaultGithubService()
-        let reqresInService = DefaultReqresInService()
-        var service = Service()
-        service.session = URLSession.shared
-        githubService.service = service
-        reqresInService.service = service
-        collectionViewController.githubService = githubService
-        collectionViewController.reqresInService = reqresInService
+        collectionViewController.githubService = DefaultServiceFactory.makeGithubService()
+        collectionViewController.reqresInService = DefaultServiceFactory.makeReqresInService()
         navigationController.pushViewController(collectionViewController, animated: false)
     }
 }
