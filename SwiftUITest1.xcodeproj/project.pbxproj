@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		234587CF238C5C9E00A6180F /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234587CE238C5C9E00A6180F /* Service.swift */; };
 		234587D1238C662100A6180F /* GithubService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234587D0238C662100A6180F /* GithubService.swift */; };
+		234587D3238D91CA00A6180F /* ReqresInService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234587D2238D91CA00A6180F /* ReqresInService.swift */; };
+		234587D7238DA06E00A6180F /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234587D6238DA06E00A6180F /* Models.swift */; };
 		237028F32376072B00DE8E49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237028F22376072B00DE8E49 /* AppDelegate.swift */; };
 		237028F52376072B00DE8E49 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237028F42376072B00DE8E49 /* SceneDelegate.swift */; };
 		237028F72376072B00DE8E49 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237028F62376072B00DE8E49 /* ContentView.swift */; };
@@ -22,6 +24,8 @@
 /* Begin PBXFileReference section */
 		234587CE238C5C9E00A6180F /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		234587D0238C662100A6180F /* GithubService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubService.swift; sourceTree = "<group>"; };
+		234587D2238D91CA00A6180F /* ReqresInService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReqresInService.swift; sourceTree = "<group>"; };
+		234587D6238DA06E00A6180F /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		237028EF2376072B00DE8E49 /* SwiftUITest1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUITest1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		237028F22376072B00DE8E49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		237028F42376072B00DE8E49 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,6 +50,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		234587D4238D9E8F00A6180F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				234587CE238C5C9E00A6180F /* Service.swift */,
+				234587D0238C662100A6180F /* GithubService.swift */,
+				234587D2238D91CA00A6180F /* ReqresInService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		234587D5238DA06500A6180F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				234587D6238DA06E00A6180F /* Models.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		237028E62376072B00DE8E49 = {
 			isa = PBXGroup;
 			children = (
@@ -66,8 +88,8 @@
 		237028F12376072B00DE8E49 /* SwiftUITest1 */ = {
 			isa = PBXGroup;
 			children = (
-				234587CE238C5C9E00A6180F /* Service.swift */,
-				234587D0238C662100A6180F /* GithubService.swift */,
+				234587D5238DA06500A6180F /* Models */,
+				234587D4238D9E8F00A6180F /* Services */,
 				239FEC34237B2A510044D279 /* AppCoordinator.swift */,
 				239FEC32237B2A360044D279 /* SomeViewController.swift */,
 				237028F22376072B00DE8E49 /* AppDelegate.swift */,
@@ -170,9 +192,11 @@
 			files = (
 				237028F32376072B00DE8E49 /* AppDelegate.swift in Sources */,
 				237028F52376072B00DE8E49 /* SceneDelegate.swift in Sources */,
+				234587D3238D91CA00A6180F /* ReqresInService.swift in Sources */,
 				239FEC35237B2A510044D279 /* AppCoordinator.swift in Sources */,
 				234587D1238C662100A6180F /* GithubService.swift in Sources */,
 				234587CF238C5C9E00A6180F /* Service.swift in Sources */,
+				234587D7238DA06E00A6180F /* Models.swift in Sources */,
 				239FEC33237B2A360044D279 /* SomeViewController.swift in Sources */,
 				237028F72376072B00DE8E49 /* ContentView.swift in Sources */,
 			);

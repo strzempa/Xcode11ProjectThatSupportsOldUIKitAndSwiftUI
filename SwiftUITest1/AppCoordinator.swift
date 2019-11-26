@@ -20,10 +20,13 @@ extension AppCoordinator {
     func start() {
         let collectionViewController = SomeViewController()
         var githubService = DefaultGithubService()
+        let reqresInService = DefaultReqresInService()
         var service = Service()
         service.session = URLSession.shared
         githubService.service = service
+        reqresInService.service = service
         collectionViewController.githubService = githubService
+        collectionViewController.reqresInService = reqresInService
         navigationController.pushViewController(collectionViewController, animated: false)
     }
 }

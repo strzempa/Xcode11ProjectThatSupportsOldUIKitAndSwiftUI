@@ -10,6 +10,8 @@
 import SwiftUI
 #endif
 
+#warning("Add service tasks")
+
 @available(iOS 13.0, *)
 struct MainNavigationView: View {
     var body: some View {

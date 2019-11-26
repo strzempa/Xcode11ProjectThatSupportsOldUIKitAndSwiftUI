@@ -13,13 +13,25 @@ import Combine
 
 final class SomeViewController: UIViewController {
     var githubService: GithubService!
+    var reqresInService: ReqresInService!
     
-    private var token: AnyCancellable?
+    private var tasks: AnyCancellable?
     private var repos: [Repository]? {
         didSet {
             label.text = repos?
                 .compactMap { $0.name }
                 .joined(separator: "\n")
+        }
+    }
+    private var users: [UserCreatedData]? {
+        didSet {
+            let usersText = users?
+                .compactMap { "id: \($0.id ?? "") createdAt: \($0.createdAt ?? "")" }
+                .joined(separator: "\n")
+            guard let text = usersText else {
+                return
+            }
+            label.text = "\(label.text ?? "") \n\n \(text)"
         }
     }
     
@@ -34,29 +46,39 @@ final class SomeViewController: UIViewController {
         view.backgroundColor = .red
         setupLabel()
         
-        fetchRepos()
+        fetchData()
     }
 }
 
 private extension SomeViewController {
-    func fetchRepos() {
-        let token1 = githubService
+    func fetchData() {
+        let fetchReposTask1 = githubService
             .fetchRepos(username: "strzempa")
         
-        let token2 = githubService
+        let fetchReposTask2 = githubService
             .fetchRepos(username: "kastiglione")
         
-        token = Publishers.Zip(token1, token2)
+        let postUserTask1 = reqresInService
+            .post(user: PostUserData(name: "morpheus", job: "leader"))
+
+        let postUserTask2 = reqresInService
+            .post(user: PostUserData(name: "alex", job: "jobb"))
+        
+        tasks = Publishers.Zip(Publishers.Zip(postUserTask1, postUserTask2),
+                                   Publishers.Zip(fetchReposTask1, fetchReposTask2))
             .sink(receiveCompletion: { status in
-                print("finished fetchRepos with status: \(status)")
+                DispatchQueue.main.async { [weak self] in
+                    self?.title = "\(status)"
+                }
             },
-                  receiveValue: { [weak self] repos1, repos2 in
-                    self?.repos = repos1 + repos2.prefix(5)
+                  receiveValue: { [weak self] data in
+                    self?.repos = Array(data.1.0.prefix(5) + data.1.1.prefix(5))
+                    self?.users = [data.0.0, data.0.1]
             })
     }
     
     func cancelTasks() {
-        token?.cancel()
+        tasks?.cancel()
     }
     
     func setupLabel() {

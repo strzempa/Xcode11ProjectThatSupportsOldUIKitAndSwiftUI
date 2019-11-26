@@ -34,8 +34,3 @@ private extension DefaultGithubService {
             .eraseToAnyPublisher()
     }
 }
-
-struct Repository: Codable {
-    let id: Int
-    let name: String
-}
